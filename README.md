@@ -1,6 +1,6 @@
 # arte41
 
- <img src="https://github.com/leeseomin/arte41/blob/main/41.png" width="1000">
+ <img src="https://github.com/leeseomin/arte41/blob/main/eg.png" width="1000">
 
 
 ### Dependency install on ubuntu 20.04 
