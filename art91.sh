@@ -57,7 +57,7 @@ cd s6
 parallel gmic {} -fx_array 2,2,0,0,0,0 -o ../s5/{} ::: *.*
 cd ..
 cd s5
-parallel convert {} -resize 2000x2000 {} ::: *.* &&
+parallel convert {} -resize 4000x4000 {} ::: *.* &&
 parallel convert {}  -set filename:new  ../s25/"%td4array2" "%[filename:new].png" ::: *.*
 cd ..
 cd s
@@ -121,7 +121,7 @@ cd s23
 parallel gmic {} -array_random 5,5,7,7 -o ../s6/{} ::: *.*
 cd ..
 cd s6
-parallel convert {} -resize 2000x2000 {} ::: *.* &&
+parallel convert {} -resize 4000x4000 {} ::: *.* &&
 parallel convert {} -background white -alpha remove -alpha off {} ::: *.* 
 cd ..
 cd s6
@@ -231,130 +231,3 @@ done
 cd ..
 cd s4
 parallel convert {}  -set filename:new  ../s25/"%tm5c" "%[filename:new].png" ::: *.*
-cd ..
-cd s8
-for i in *.*
-do
-gmic $i -fx_custom_deformation "(w+h)/20*cos(y*20/h)","(w+h)/20*sin(x*20/w)",1,1,3 -o ../s9/$i
-done 
-cd ..
-cd s9
-parallel convert {}  -set filename:new  ../s25/"%tz1" "%[filename:new].png" ::: *.*
-cd ..
-cd s
-parallel gmic {} -fx_compose_boostscreen 0.7,0,0.7 -o ../s2/{} ::: *.*
-cd ..
-cd s2
-parallel convert {}  -set filename:new  ../s25/"%ts1" "%[filename:new].png" ::: *.*
-cd ..
-cd s
-parallel convert {} -resize 1200x1200 ../s1/{.}.png ::: *.* 
-cd ..
-cd s1
-for i in *.* 
-do 
-convert -gravity Center -geometry 1000x1000+300-250 /home/lee/cpux/logo/mon.png  $i -alpha set  -compose hardlight -composite ../s5/$i 
-done 
-cd ..
-cd s5
-parallel convert {}  -set filename:new  ../s25/"%tx" "%[filename:new].png" ::: *.*
-cd ..
-cd s5
-parallel gmic {} -weave 10,65,0,0.5,0,0,0,0,0 -o ../s6/{} ::: *.*
-cd ..
-cd s6
-parallel convert {}  -set filename:new  ../s25/"%tx_2" "%[filename:new].png" ::: *.*
-cd ..
-cd s
-parallel gmic {} -fx_project_stereographic 0,50,50,50,75,0,0,0,0,0,50,50 -o ../s1/{} ::: *.*
-cd ..
-cd s1
-parallel convert {}  -set filename:new  ../s25/"%tx_3" "%[filename:new].png" ::: *.*
-cd ..
-cd s
-for i in *.* 
-do 
-convert $i /home/lee/cpux/logo/mon7.png -alpha set  -compose darken -composite ../s3/$i 
-done 
-cd ..
-cd s3
-parallel convert {}  -set filename:new  ../s25/"%tmon7" "%[filename:new].png" ::: *.*
-cd ..
-cd s
-for i in *.* 
-do 
-convert $i ../s3/$i -alpha set  -compose linearlight -composite ../s4/$i 
-done 
-cd ..
-cd s4
-parallel convert {}  -set filename:new  ../s25/"%tmon7a" "%[filename:new].png" ::: *.*
-cd ..
-cd s
-parallel gmic {} -fx_polygonize 300,10,10,30,30,0,0,0,255,0,50,50 -o ../s6/{} ::: *.*
-cd ..
-cd s6
-parallel convert {}  -set filename:new  ../s25/"%tpoly30" "%[filename:new].png" ::: *.*
-cd ..
-cd s6
-parallel gmic {} -fx_compose_vivid_color 1,0,1 -o ../s2/{} ::: *.*
-cd ..
-cd s2
-parallel convert {}  -set filename:new  ../s25/"%tpoly30vivid" "%[filename:new].png" ::: *.*
-cd ..
-cd s6
-for i in *.* 
-do 
-convert $i ../s/$i -alpha set  -compose softlight -composite ../s7/$i 
-done 
-cd ..
-cd s7
-parallel convert {}  -set filename:new  ../s25/"%tpoly31" "%[filename:new].png" ::: *.*
-cd ..
-cd s7
-for i in *.* 
-do 
-convert $i /home/lee/cpux/logo/2x.png -alpha set  -compose hardlight -composite ../s8/$i 
-done 
-cd ..
-cd s8
-parallel convert {}  -set filename:new  ../s25/"%tpoly31a" "%[filename:new].png" ::: *.*
-cd ..
-cd s
-for i in *.* 
-do
-gmic -input $i -gtutor_fpaint 0.5,0.5,0,0,45,0.5,0.5,0.5,0 -o ../s1/$i 
-done
-cd ..
-cd s1
-for i in *.* 
-do 
-convert $i ../s/$i -alpha set  -compose softlight -composite ../s2/$i 
-done 
-cd ..
-cd s2
-parallel convert {}  -set filename:new  ../s25/"%tyfinger" "%[filename:new].png" ::: *.*
-cd ..
-cd s2
-parallel gmic {} -fx_AbstractFlood 1,10,7,2,0,10,5,3,255,255,255,255,0,300,10,90,0.7,0,0,0 -o ../s5/{} ::: *.*
-cd ..
-cd s5
-parallel convert {}  -set filename:new  ../s25/"%tyfinger_fl" "%[filename:new].png" ::: *.*
-cd ..
-cd s2
-for i in *.* 
-do
-gmic -input $i -gtutor_fpaint 0.5,0.5,0,0,45,0.5,0.5,0.5,0 -o ../s1/$i 
-done
-cd ..
-cd s1
-for i in *.* 
-do 
-convert $i ../s2/$i -alpha set  -compose softlight -composite ../s3/$i 
-done 
-cd ..
-cd s3
-parallel convert {}  -set filename:new  ../s25/"%tyfinger2" "%[filename:new].png" ::: *.*
-
-
-
-
