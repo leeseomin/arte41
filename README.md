@@ -57,8 +57,10 @@ mkdir s{1..25}
 input images folder : s ,   result folder : s25
 
 
-bash main.sh   or  bash 5k2.sh
+bash main.sh   or  bash 5k2.sh  or 
 
+
+bash art91.sh 
 
 
 
