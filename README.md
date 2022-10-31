@@ -3,6 +3,21 @@
  <img src="https://github.com/leeseomin/arte41/blob/main/eg.png" width="1000">
 
 
+
+### Dependency install on m1 mac 
+
+```
+brew install imagemagick
+brew install gmic
+brew install parallel
+
+if error installing :
+xcode-select --install
+
+```
+
+
+
 ### Dependency install on ubuntu 20.04 
 
 
